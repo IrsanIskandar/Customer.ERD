@@ -17,14 +17,16 @@ namespace Customer.Domain.Models
         [StringLength(100)]
         public string mnemonic { get; set; }
 
-        [ForeignKey("")]
         public int kode_bentuk_badan_usaha { get; set; }
 
-        [ForeignKey("")]
-        public int id_tempat_pendirian { get; set; }
+        [ForeignKey("kode_bentuk_badan_usaha")]
+        public MSBentukBadanUsaha MSBentukBadanUsaha { get; set; }
 
-        [ForeignKey("")]
-        public int id_last_sub_sector { get; set; }
+        //[ForeignKey("")]
+        //public int id_tempat_pendirian { get; set; }
+
+        //[ForeignKey("")]
+        //public int id_last_sub_sector { get; set; }
 
         [StringLength(10)]
         public string sub_sector { get; set; }
@@ -54,12 +56,16 @@ namespace Customer.Domain.Models
         public string public_listed { get; set; }
 
         [StringLength(2)]
-        [ForeignKey("")]
         public char id_hubungan_pelapor { get; set; }
 
+        [ForeignKey("id_hubungan_pelapor")]
+        public HubunganPelapor HubunganPelapor { get; set; }
+
         [StringLength(8)]
-        [ForeignKey("")]
         public char id_golongan_debitur { get; set; }
+
+        [ForeignKey("id_golongan_debitur")]
+        public GolonganPihakKetiga GolonganPihakKetiga { get; set; }
 
         public int id_last_customer_status { get; set; }
 

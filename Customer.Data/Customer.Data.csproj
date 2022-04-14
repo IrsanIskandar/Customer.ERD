@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AccessData\" />
+    <Compile Remove="AccessData\**" />
+    <EmbeddedResource Remove="AccessData\**" />
+    <None Remove="AccessData\**" />
   </ItemGroup>
 
   <ItemGroup>
