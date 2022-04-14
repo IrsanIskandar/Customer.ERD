@@ -18,7 +18,7 @@ namespace Customer.Domain.Models
         public int id_customer { get; set; }
 
         [ForeignKey("id_customer")]
-        public virtual ICollection<Customer> Customers { get; set; }
+        public virtual Customer Customer { get; set; }
 
         [StringLength(70)]
         public string name { get; set; }

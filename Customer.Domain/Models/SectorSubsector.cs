@@ -3,32 +3,27 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Customer.Domain.Models
 {
-    [Table("customer_account_manager")]
-    public class CustomerAccountManager
+    [Table("sector_subsector")]
+    public class SectorSubsector
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
-        public int id_account_manager { get; set; }
-
-        [ForeignKey("id_account_manager")]
-        public virtual ICollection<MSAccountManager> MSAccountManagers { get; set; }
-
         public int id_customer { get; set; }
 
         [ForeignKey("id_customer")]
-        public virtual Customer Customer { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
 
-        public bool is_active { get; set; }
+        public int id_sector { get; set; }
 
-        public bool is_team_leader { get; set; }
+        [ForeignKey("id_sector")]
+        public virtual ICollection<MSSector> MSSectors { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime start_date { get; set; }
+        public int id_subsector { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime? end_date { get; set; }
+        [ForeignKey("id_subsector")]
+        public virtual ICollection<MSSubsector> MSSubsectors { get; set; }
 
         [DataType(DataType.DateTime)]
         public DateTime created_datetime { get; set; }

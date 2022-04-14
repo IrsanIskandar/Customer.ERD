@@ -21,15 +21,18 @@ namespace Customer.Domain.Models
         [ForeignKey("id_team_leader")]
         public virtual MSAccountManager MSAccountManagers { get; set; }
 
+        [ForeignKey("id_team_leader")]
+        public virtual ICollection<MSAccountManager> MSAccountManagerss { get; set; }
+
         public int id_directorate { get; set; }
 
         [ForeignKey("id_directorate")]
-        public virtual MSOrgDirectorate MSOrgDirectorate { get; set; }
+        public virtual ICollection<MSOrgDirectorate> MSOrgDirectorates { get; set; }
 
         public int id_division { get; set; }
 
         [ForeignKey("id_division")]
-        public virtual MSOrgDivision MSOrgDivision { get; set; }
+        public virtual ICollection<MSOrgDivision> MSOrgDivisions { get; set; }
 
         [DataType(DataType.DateTime)]
         public DateTime created_datetime { get; set; }

@@ -12,6 +12,7 @@ namespace Customer.Domain.Models
     public class MSKecamatan
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
         [StringLength(20)]

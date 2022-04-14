@@ -3,16 +3,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Customer.Domain.Models
 {
-    [Table("customer")]
+    [Table("customer_address")]
     public class CustomerAddress
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
         public int customer_id { get; set; }
 
         [ForeignKey("customer_id")]
-        public virtual Customer Customer { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
 
         public int id_address_type { get; set; }
 
@@ -28,7 +29,7 @@ namespace Customer.Domain.Models
         public int id_kelurahan { get; set; }
 
         [ForeignKey("id_kelurahan")]
-        public virtual MSKelurahan MSKelurahan { get; set; }
+        public virtual ICollection<MSKelurahan> MSKelurahans { get; set; }
 
         [StringLength(50)]
         public string? kelurahan_lainnya { get; set; }
@@ -36,7 +37,7 @@ namespace Customer.Domain.Models
         public int id_kecamatan { get; set; }
 
         [ForeignKey("id_kecamatan")]
-        public virtual MSKecamatan MSKecamatan { get; set; }
+        public virtual ICollection<MSKecamatan> MSKecamatans { get; set; }
 
         [StringLength(50)]
         public string? kecamatan_lainnya { get; set; }
@@ -44,7 +45,7 @@ namespace Customer.Domain.Models
         public int id_kota { get; set; }
 
         [ForeignKey("id_kota")]
-        public virtual MSKota MSKota { get; set; }
+        public virtual ICollection<MSKota> MSKotas { get; set; }
 
         [StringLength(50)]
         public string? kota_lainnya { get; set; }
@@ -52,7 +53,7 @@ namespace Customer.Domain.Models
         public int id_provinsi { get; set; }
 
         [ForeignKey("id_provinsi")]
-        public virtual MSProvinsi MSProvinsi { get; set; }
+        public virtual ICollection<MSProvinsi> MSProvinsis { get; set; }
 
         [StringLength(50)]
         public string? provinsi_lainnya { get; set; }
@@ -60,7 +61,7 @@ namespace Customer.Domain.Models
         public int id_negara { get; set; }
 
         [ForeignKey("id_negara")]
-        public virtual MSNegara MSNegara { get; set; }
+        public virtual ICollection<MSNegara> MSNegaras { get; set; }
 
         [StringLength(50)]
         public string? negara_lainnya { get; set; }
@@ -68,7 +69,7 @@ namespace Customer.Domain.Models
         public int id_kode_pos { get; set; }
 
         [ForeignKey("id_kode_pos")]
-        public virtual MSKodepos MSKodepos { get; set; }
+        public virtual ICollection<MSKodepos> MSKodepos { get; set; }
 
         [StringLength(10)]
         public string? kode_pos_lainnya { get; set; }

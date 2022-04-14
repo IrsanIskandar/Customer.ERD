@@ -3,14 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Customer.Domain.Models
 {
-    [Table("ms_customer_relationship")]
-    public class MSCustomerRelationship
+    [Table("sektor_ekonomi")]
+    public class SektorEkonomi
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        [StringLength(6)]
+        public char id { get; set; }
 
-        [StringLength(40)]
+        [StringLength(200)]
         public string description { get; set; }
     }
 }

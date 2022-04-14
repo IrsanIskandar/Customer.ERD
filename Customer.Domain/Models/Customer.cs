@@ -7,6 +7,7 @@ namespace Customer.Domain.Models
     public class Customer
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
         public int customer_no { get; set; }
@@ -20,13 +21,17 @@ namespace Customer.Domain.Models
         public int kode_bentuk_badan_usaha { get; set; }
 
         [ForeignKey("kode_bentuk_badan_usaha")]
-        public MSBentukBadanUsaha MSBentukBadanUsaha { get; set; }
+        public virtual ICollection<MSBentukBadanUsaha> MSBentukBadanUsahas { get; set; }
 
-        //[ForeignKey("")]
-        //public int id_tempat_pendirian { get; set; }
+        public int? id_tempat_pendirian { get; set; }
 
-        //[ForeignKey("")]
-        //public int id_last_sub_sector { get; set; }
+        [ForeignKey("id_tempat_pendirian")]
+        public MSKota MSKota { get; set; }
+
+        public int id_last_sub_sector { get; set; }
+
+        [ForeignKey("id_last_sub_sector")]
+        public virtual ICollection<MSSubsector> MSSubsectors { get; set; }
 
         [StringLength(10)]
         public string sub_sector { get; set; }
@@ -36,12 +41,12 @@ namespace Customer.Domain.Models
         public int id_customer_relationship { get; set; }
 
         [ForeignKey("id_customer_relationship")]
-        public virtual MSCustomerRelationship MSCustomerRelationship { get; set; }
+        public virtual ICollection<MSCustomerRelationship> MSCustomerRelationships { get; set; }
 
         public int id_soe_status { get; set; }
 
         [ForeignKey("id_soe_status")]
-        public virtual MSSoeStatus MSSoeStatus { get; set; }
+        public virtual ICollection<MSSoeStatus> MSSoeStatuses { get; set; }
 
         [StringLength(50)]
         public string phone_no { get; set; }
@@ -59,18 +64,18 @@ namespace Customer.Domain.Models
         public char id_hubungan_pelapor { get; set; }
 
         [ForeignKey("id_hubungan_pelapor")]
-        public HubunganPelapor HubunganPelapor { get; set; }
+        public virtual ICollection<HubunganPelapor> HubunganPelapors { get; set; }
 
         [StringLength(8)]
         public char id_golongan_debitur { get; set; }
 
         [ForeignKey("id_golongan_debitur")]
-        public GolonganPihakKetiga GolonganPihakKetiga { get; set; }
+        public virtual ICollection<GolonganPihakKetiga> GolonganPihakKetigas { get; set; }
 
         public int id_last_customer_status { get; set; }
 
         [ForeignKey("id_last_customer_status")]
-        public virtual MSCustomerStatus MSCustomerStatus { get; set; }
+        public virtual ICollection<MSCustomerStatus> MSCustomerStatuses { get; set; }
 
         [StringLength(10)]
         public string sam_account { get; set; }

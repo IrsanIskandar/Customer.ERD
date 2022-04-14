@@ -3,15 +3,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Customer.Domain.Models
 {
-    [Table("customer")]
+    [Table("customer_ratings")]
     public class CustomerRatings
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
-        public int customer_id { get; set; }
+        public int id_customer { get; set; }
 
-        [ForeignKey("customer_id")]
+        [ForeignKey("id_customer")]
         public virtual Customer Customer { get; set; }
 
         public int? id_external_rating_agency { get; set; }

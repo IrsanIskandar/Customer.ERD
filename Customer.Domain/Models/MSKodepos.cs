@@ -12,6 +12,7 @@ namespace Customer.Domain.Models
     public class MSKodepos
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
         public int id_kelurahan { get; set; }

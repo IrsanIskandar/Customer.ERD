@@ -7,6 +7,7 @@ namespace Customer.Domain.Models
     public class MSOrgDivision
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
         public int id_directorate { get; set; }
