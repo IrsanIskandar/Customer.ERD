@@ -37,7 +37,8 @@ namespace Customer.Data
         public DbSet<MSSoeStatus> MSSoeStatuses { get; set; }
         public DbSet<MSSubsector> MSSubsectors { get; set; }
         public DbSet<SectorSubsector> SectorSubsectors { get; set; }
-        public DbSet<CustomerLog> SektorEkonomis { get; set; }
+        public DbSet<SektorEkonomi> SektorEkonomis { get; set; }
+        public DbSet<CustomerLog> CustomerLogs { get; set; }
         public DbSet<CustomerStatuses> CustomerStatuses { get; set; }
         public DbSet<CustomerRatings> CustomerRatings { get; set; }
         public DbSet<CustomerGroup> CustomerGroups { get; set; }
